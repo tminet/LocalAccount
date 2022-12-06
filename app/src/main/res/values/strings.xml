@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Local Account</string>
+    <string name="appDescription">An example of data persistence with Room and Datastore</string>
+
+    <!-- general -->
+    <string name="clear">Clear</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+    <string name="navigateBack">Navigate back</string>
+    <string name="signIn">Sign in</string>
+    <string name="signUp">Sign up</string>
+    <string name="logout">Logout</string>
+    <string name="settings">Settings</string>
+    <string name="name">Name</string>
+    <string name="namePlaceholder">Your name</string>
+    <string name="nameEmptyError">Name cannot be empty</string>
+    <string name="email">Email</string>
+    <string name="emailPlaceholder">your@email.com</string>
+    <string name="emailEmptyError">Email cannot be empty</string>
+    <string name="emailInvalidError">This is not a valid email</string>
+    <string name="password">Password</string>
+    <string name="passwordPlaceholderHide">••••••••••</string>
+    <string name="passwordPlaceholderShow">your_pass</string>
+    <string name="passwordEmptyError">Password cannot be empty</string>
+    <string name="passwordTooShortError">Password must be at least 4 characters</string>
+
+    <!-- sign in screen -->
+    <string name="localAccountSignIn">Local Account - Sign in</string>
+    <string name="stayConnected">Stay connected</string>
+    <string name="dontHaveAccount">Don\'t have an account?</string>
+    <string name="emailNotAssociatedWithAccount">This email is not associated with an account</string>
+    <string name="incorrectPassword">Incorrect password</string>
+
+    <!-- sign up screen -->
+    <string name="localAccountSignUp">Local Account - Sign up</string>
+    <string name="emailAlreadyHasAccountAssociated">This email already has an account associated</string>
+    <string name="anErrorOccurred">An error occurred</string>
+
+    <!-- settings screen -->
+    <string name="appearance">Appearance</string>
+    <string name="useDynamicColors">Use dynamic colors</string>
+    <string name="themeStyle">Theme style:</string>
+    <string name="followAndroidSystem">Follow Android system</string>
+    <string name="lightMode">Light mode</string>
+    <string name="darkMode">Dark mode</string>
+    <string name="account">Account</string>
+    <string name="saveChanges">Save changes</string>
+    <string name="emailNotAvailable">This email is not available</string>
+    <string name="accountUpdated">Account updated</string>
+
+</resources>
