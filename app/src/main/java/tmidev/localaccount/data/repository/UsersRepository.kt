@@ -16,7 +16,7 @@ interface UsersRepository {
 
     suspend fun isEmailAvailable(email: String): Boolean
 
-    suspend fun insertUser(user: User): Long
+    suspend fun insertUser(user: User): Int
 
     suspend fun updateUser(user: User)
 }
@@ -42,9 +42,9 @@ class UsersRepositoryImpl @Inject constructor(
     override suspend fun isEmailAvailable(email: String): Boolean =
         !usersDao.isEmailInUse(email = email)
 
-    override suspend fun insertUser(user: User): Long {
+    override suspend fun insertUser(user: User): Int {
         val userEntity = user.asUserEntity()
-        return usersDao.insertUserOrIgnore(userEntity = userEntity)
+        return usersDao.insertUserOrIgnore(userEntity = userEntity).toInt()
     }
 
     override suspend fun updateUser(user: User) {
