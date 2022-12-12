@@ -193,7 +193,7 @@ class SignUpViewModel @Inject constructor(
 
             val userId = insertUserUseCase(user = user)
             if (userId > 0) {
-                setCurrentUserIdUseCase(userId = userId.toInt(), stayConnected = false)
+                setCurrentUserIdUseCase(userId = userId, stayConnected = false)
                 _channel.send(element = SignUpChannel.SignUpSuccessfully)
             } else _channel.send(element = SignUpChannel.SignUpFailed)
         }
