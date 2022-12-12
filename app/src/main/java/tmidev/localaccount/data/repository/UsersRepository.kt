@@ -7,20 +7,67 @@ import tmidev.localaccount.data.datasource.room.model.UserEntity
 import tmidev.localaccount.domain.model.User
 import javax.inject.Inject
 
+/**
+ * Repository interface for [User].
+ */
 interface UsersRepository {
+    /**
+     * Get a data stream of nullable user by id.
+     *
+     * @param id the [Int] id of user to be get.
+     *
+     * @return [Flow] of [User] or null if there is no user found for the provided [id].
+     */
     fun getUserByIdStream(id: Int): Flow<User?>
 
+    /**
+     * Get a nullable user by id.
+     *
+     * @param id the [Int] id of user to be get.
+     *
+     * @return [User] or null if there is no user found for the provided [id].
+     */
     suspend fun getUserById(id: Int): User?
 
+    /**
+     * Get a nullable user by email.
+     *
+     * @param email the [String] email of user to be get.
+     *
+     * @return [User] or null if there is no user found for the provided [email].
+     */
     suspend fun getUserByEmail(email: String): User?
 
+    /**
+     * Checks if the email is not registered with any user.
+     *
+     * @param email the [String] email to be checked.
+     *
+     * @return true if the [email] is available to use, false otherwise.
+     */
     suspend fun isEmailAvailable(email: String): Boolean
 
+    /**
+     * Insert an user.
+     *
+     * @param user the [User] to be inserted.
+     *
+     * @return an [Int] value that represents the current id of the inserted user.
+     * -1 is returned if this operation fails.
+     */
     suspend fun insertUser(user: User): Int
 
+    /**
+     * Update an user.
+     *
+     * @param user the [User] to be matched and updated.
+     */
     suspend fun updateUser(user: User)
 }
 
+/**
+ * Implementation of [UsersRepository] that uses [UsersDao].
+ */
 class UsersRepositoryImpl @Inject constructor(
     private val usersDao: UsersDao
 ) : UsersRepository {
@@ -52,6 +99,9 @@ class UsersRepositoryImpl @Inject constructor(
         usersDao.updateUser(userEntity = userEntity)
     }
 
+    /**
+     * Extension to map [UserEntity] into [User].
+     */
     private fun UserEntity.asUser() = User(
         id = id,
         name = name,
@@ -59,6 +109,9 @@ class UsersRepositoryImpl @Inject constructor(
         password = password
     )
 
+    /**
+     * Extension to map [User] into [UserEntity].
+     */
     private fun User.asUserEntity() = UserEntity(
         id = id,
         name = name,
