@@ -1,7 +1,7 @@
 package tmidev.localaccount.domain.model
 
 /**
- * User model class.
+ * Model class that represents an user.
  */
 data class User(
     val id: Int = 0,
