@@ -10,6 +10,8 @@ and `Jetpack Compose`.
   responsible for creating a new account.
 - `Sign Up Screen`: this is the screen responsible for creating a new account, with <b>name</b>, <b>
   email</b> and <b>password</b>.
+- `Reset Password Screen`: the user can reset the password by providing an <b>email</b> on this
+  screen.
 - `Home Screen`: it is the entry point of the app if the user checks the option to stay connected
   during login. Here it is possible to logout and navigate to settings screen.
 - `Settings Screen`: here it is possible to change the <b>name</b> or <b>email</b> of the account.
