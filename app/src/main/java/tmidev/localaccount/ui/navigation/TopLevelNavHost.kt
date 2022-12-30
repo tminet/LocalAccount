@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import tmidev.localaccount.ui.screen.home.HomeScreen
+import tmidev.localaccount.ui.screen.resetpassword.ResetPasswordScreen
 import tmidev.localaccount.ui.screen.settings.SettingsScreen
 import tmidev.localaccount.ui.screen.signin.SignInScreen
 import tmidev.localaccount.ui.screen.signup.SignUpScreen
@@ -46,6 +47,9 @@ fun TopLevelNavHost(
             },
             onNavigateToSignUp = {
                 topLevelState.navigate(destinationRoute = TopLevelScreen.SignUp.route)
+            },
+            onNavigateToResetPassword = {
+                topLevelState.navigate(destinationRoute = TopLevelScreen.ResetPassword.route)
             }
         )
     }
@@ -64,6 +68,19 @@ fun TopLevelNavHost(
                 topLevelState.navigateAndClearBack(
                     currentRoute = TopLevelScreen.SignUp.route,
                     destinationRoute = TopLevelScreen.Home.route
+                )
+            }
+        )
+    }
+
+    composable(route = TopLevelScreen.ResetPassword.route) {
+        ResetPasswordScreen(
+            modifier = Modifier.fillMaxSize(),
+            windowInsets = windowInsets,
+            onNavigateBack = {
+                topLevelState.navigateBackWithFallback(
+                    currentRoute = TopLevelScreen.ResetPassword.route,
+                    destinationRoute = TopLevelScreen.SignIn.route
                 )
             }
         )
@@ -103,6 +120,7 @@ fun TopLevelNavHost(
 sealed class TopLevelScreen(val route: String) {
     object SignIn : TopLevelScreen(route = "sign_in")
     object SignUp : TopLevelScreen(route = "sign_up")
+    object ResetPassword : TopLevelScreen(route = "reset_password")
     object Home : TopLevelScreen(route = "home")
     object Settings : TopLevelScreen(route = "settings")
 }

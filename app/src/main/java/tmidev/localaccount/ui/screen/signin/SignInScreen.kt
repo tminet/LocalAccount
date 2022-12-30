@@ -58,6 +58,7 @@ import tmidev.localaccount.util.safeStringResource
  * @param onNavigateBack callback to navigate back from this screen.
  * @param onNavigateToHome callback to navigate to home screen.
  * @param onNavigateToSignUp callback to navigate to sign up screen.
+ * @param onNavigateToResetPassword callback to navigate to reset password screen.
  * @param viewModel the [SignInViewModel]. Default is provided by [hiltViewModel].
  */
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
@@ -68,6 +69,7 @@ fun SignInScreen(
     onNavigateBack: () -> Unit,
     onNavigateToHome: () -> Unit,
     onNavigateToSignUp: () -> Unit,
+    onNavigateToResetPassword: () -> Unit,
     viewModel: SignInViewModel = hiltViewModel()
 ) {
     val screenState by viewModel.screenState.collectAsStateWithLifecycle()
@@ -200,6 +202,13 @@ fun SignInScreen(
                     modifier = Modifier.padding(all = 4.dp),
                     text = stringResource(id = R.string.stayConnected),
                     style = MaterialTheme.typography.bodyLarge
+                )
+
+                Spacer(modifier = Modifier.weight(weight = 1F))
+
+                LaTextButton(
+                    text = stringResource(id = R.string.forgotPassword),
+                    onClick = onNavigateToResetPassword
                 )
             }
 
