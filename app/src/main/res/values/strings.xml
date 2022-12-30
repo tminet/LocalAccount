@@ -26,16 +26,25 @@
     <string name="passwordTooShortError">Password must be at least 4 characters</string>
 
     <!-- sign in screen -->
-    <string name="localAccountSignIn">Local Account - Sign in</string>
+    <string name="localAccountSignIn">LA - Sign in</string>
     <string name="stayConnected">Stay connected</string>
+    <string name="forgotPassword">Forgot password?</string>
     <string name="dontHaveAccount">Don\'t have an account?</string>
     <string name="emailNotAssociatedWithAccount">This email is not associated with an account</string>
     <string name="incorrectPassword">Incorrect password</string>
 
     <!-- sign up screen -->
-    <string name="localAccountSignUp">Local Account - Sign up</string>
+    <string name="localAccountSignUp">LA - Sign up</string>
     <string name="emailAlreadyHasAccountAssociated">This email already has an account associated</string>
     <string name="anErrorOccurred">An error occurred</string>
+
+    <!-- reset password screen -->
+    <string name="localAccountResetPassword">LA - Reset password</string>
+    <string name="currentEmail">Current email</string>
+    <string name="newPassword">New password</string>
+    <string name="resetPassword">Reset password</string>
+    <string name="thereIsNoAccountRegisteredWithThisEmail">There is no account registered with this email</string>
+    <string name="passwordSuccessfullyReset">Password successfully reset</string>
 
     <!-- settings screen -->
     <string name="appearance">Appearance</string>
