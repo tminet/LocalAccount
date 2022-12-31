@@ -28,4 +28,9 @@ and `Jetpack Compose`.
 - `Navigation`: screen navigation is done following good practices to keep composable functions
   decoupled and reusable.
 - `Material 3`: the app's is based on Material 3 colors and components.
+
+---
+
+Download available
+on [Play Store](https://play.google.com/store/apps/details?id=tmidev.localaccount).
  
