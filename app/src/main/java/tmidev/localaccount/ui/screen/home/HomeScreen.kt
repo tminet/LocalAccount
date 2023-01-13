@@ -19,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import tmidev.localaccount.R
 import tmidev.localaccount.util.LaIcons
@@ -34,7 +33,7 @@ import tmidev.localaccount.util.LaIcons
  * @param onNavigateToSettings callback to navigate to settings screen.
  * @param viewModel the [HomeViewModel]. Default is provided by [hiltViewModel].
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,

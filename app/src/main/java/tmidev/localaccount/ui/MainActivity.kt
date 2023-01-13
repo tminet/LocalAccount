@@ -8,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import tmidev.localaccount.ui.component.laWindowInsets
@@ -18,7 +17,6 @@ import tmidev.localaccount.ui.navigation.TopLevelNavHost
 import tmidev.localaccount.ui.navigation.TopLevelScreen
 import tmidev.localaccount.util.shouldUseDarkTheme
 
-@OptIn(ExperimentalLifecycleComposeApi::class)
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

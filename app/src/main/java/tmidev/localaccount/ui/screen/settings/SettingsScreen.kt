@@ -26,11 +26,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import tmidev.localaccount.R
 import tmidev.localaccount.ui.screen.settings.sections.AccountSection
 import tmidev.localaccount.ui.screen.settings.sections.AppearanceSection
-import tmidev.localaccount.R
 import tmidev.localaccount.util.LaIcons
 
 /**
@@ -41,7 +40,7 @@ import tmidev.localaccount.util.LaIcons
  * @param onNavigateBack callback to navigate back from this screen.
  * @param viewModel the [SettingsViewModel]. Default is provided by [hiltViewModel].
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,

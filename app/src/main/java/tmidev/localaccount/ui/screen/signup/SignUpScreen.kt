@@ -36,7 +36,6 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import tmidev.localaccount.R
 import tmidev.localaccount.ui.component.LaButton
@@ -55,7 +54,7 @@ import tmidev.localaccount.util.safeStringResource
  * @param onNavigateToHome callback to navigate to home screen.
  * @param viewModel the [SignUpViewModel]. Default is provided by [hiltViewModel].
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreen(
     modifier: Modifier = Modifier,

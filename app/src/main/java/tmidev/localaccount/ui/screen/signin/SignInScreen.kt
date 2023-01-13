@@ -39,7 +39,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.ExperimentalLifecycleComposeApi
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import tmidev.localaccount.R
 import tmidev.localaccount.ui.component.LaButton
@@ -61,7 +60,7 @@ import tmidev.localaccount.util.safeStringResource
  * @param onNavigateToResetPassword callback to navigate to reset password screen.
  * @param viewModel the [SignInViewModel]. Default is provided by [hiltViewModel].
  */
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalLifecycleComposeApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
