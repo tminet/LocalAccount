@@ -15,7 +15,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,6 +24,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import tmidev.localaccount.R
 import tmidev.localaccount.util.isCompatibleWithDynamicColors
@@ -31,34 +32,44 @@ import tmidev.localaccount.util.isCompatibleWithDynamicColors
 /**
  * Local Account default theme.
  *
- * @param useDarkTheme when the theme should have dark colors. Default follow the Android theme.
+ * @param systemUiController [SystemUiController] for system bars.
+ * @param useDarkTheme when the theme should have dark colors. Default is [isSystemInDarkTheme].
  * @param useDynamicColors when the color scheme should use colors based on device wallpaper,
  * this will only be applied on API 31 and up. Default is true.
  * @param content the content for this theme.
  */
 @Composable
 fun LaTheme(
+    systemUiController: SystemUiController = rememberSystemUiController(),
     useDarkTheme: Boolean = isSystemInDarkTheme(),
     useDynamicColors: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val systemUiController = rememberSystemUiController()
-
     val colorScheme = when {
         isCompatibleWithDynamicColors() && useDynamicColors -> {
             val context = LocalContext.current
             if (useDarkTheme) dynamicDarkColorScheme(context = context)
             else dynamicLightColorScheme(context = context)
         }
+
         useDarkTheme -> darkColorScheme()
+
         else -> lightColorScheme()
     }
 
-    SideEffect {
+    DisposableEffect(
+        key1 = systemUiController,
+        key2 = useDarkTheme,
+        key3 = useDynamicColors
+    ) {
         systemUiController.setSystemBarsColor(
             color = Color.Transparent,
-            darkIcons = colorScheme.background.luminance() > 0.5
+            darkIcons = colorScheme.background.luminance() > 0.5,
+            isNavigationBarContrastEnforced = false,
+            transformColorForLightContent = { Color.Black.copy(alpha = 0.6F) }
         )
+
+        onDispose { }
     }
 
     MaterialTheme(
