@@ -84,10 +84,12 @@ fun SignInScreen(
                     message = context.getString(R.string.emailNotAssociatedWithAccount),
                     withDismissAction = true
                 )
+
                 SignInChannel.IncorrectPassword -> snackbarHostState.showSnackbar(
                     message = context.getString(R.string.incorrectPassword),
                     withDismissAction = true
                 )
+
                 SignInChannel.SignInSuccessfully -> onNavigateToHome()
             }
         }
@@ -182,28 +184,31 @@ fun SignInScreen(
 
             Row(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .align(alignment = Alignment.Start)
-                    .toggleable(
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    modifier = Modifier.toggleable(
                         value = screenState.keepLogged,
                         role = Role.Checkbox,
                         onValueChange = { viewModel.toggleKeepLogged() }
                     ),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Checkbox(
-                    modifier = Modifier.padding(all = 4.dp),
-                    checked = screenState.keepLogged,
-                    onCheckedChange = null
-                )
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Checkbox(
+                        modifier = Modifier.padding(all = 4.dp),
+                        checked = screenState.keepLogged,
+                        onCheckedChange = null
+                    )
 
-                Text(
-                    modifier = Modifier.padding(all = 4.dp),
-                    text = stringResource(id = R.string.stayConnected),
-                    style = MaterialTheme.typography.bodyLarge
-                )
-
-                Spacer(modifier = Modifier.weight(weight = 1F))
+                    Text(
+                        modifier = Modifier.padding(all = 4.dp),
+                        text = stringResource(id = R.string.stayConnected),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
 
                 LaTextButton(
                     text = stringResource(id = R.string.forgotPassword),

@@ -46,6 +46,9 @@
     <string name="thereIsNoAccountRegisteredWithThisEmail">There is no account registered with this email</string>
     <string name="passwordSuccessfullyReset">Password successfully reset</string>
 
+    <!-- home screen -->
+    <string name="welcomeUser">Welcome, %s!</string>
+
     <!-- settings screen -->
     <string name="appearance">Appearance</string>
     <string name="useDynamicColors">Use dynamic colors</string>

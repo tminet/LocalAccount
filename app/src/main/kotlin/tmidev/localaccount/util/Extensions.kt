@@ -1,6 +1,10 @@
 package tmidev.localaccount.util
 
+import android.graphics.Color
 import android.os.Build
+import androidx.activity.ComponentActivity
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.annotation.StringRes
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -95,4 +99,25 @@ fun String.md5(): String {
     val messageDigest = MessageDigest.getInstance("MD5")
     val bigInteger = BigInteger(1, messageDigest.digest(byteArray))
     return bigInteger.toString(16).padStart(32, '0')
+}
+
+/**
+ * Custom [enableEdgeToEdge] with transparent bars.
+ *
+ * @param darkMode when dark colors is used or not.
+ */
+fun ComponentActivity.transparentEdge(darkMode: Boolean) {
+    fun systemBarStyle(
+        darkMode: Boolean
+    ): SystemBarStyle = if (darkMode) SystemBarStyle.dark(
+        scrim = Color.TRANSPARENT
+    ) else SystemBarStyle.light(
+        scrim = Color.TRANSPARENT,
+        darkScrim = Color.TRANSPARENT
+    )
+
+    enableEdgeToEdge(
+        statusBarStyle = systemBarStyle(darkMode = darkMode),
+        navigationBarStyle = systemBarStyle(darkMode = darkMode)
+    )
 }

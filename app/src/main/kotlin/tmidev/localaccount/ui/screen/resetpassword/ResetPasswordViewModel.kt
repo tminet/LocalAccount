@@ -25,8 +25,8 @@ import javax.inject.Inject
  * Sealed interface that represents one time events from view model to screen.
  */
 sealed interface ResetPasswordChannel {
-    object EmailNotFound : ResetPasswordChannel
-    object PasswordSuccessfullyReset : ResetPasswordChannel
+    data object EmailNotFound : ResetPasswordChannel
+    data object PasswordSuccessfullyReset : ResetPasswordChannel
 }
 
 /**

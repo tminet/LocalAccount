@@ -32,8 +32,8 @@ import javax.inject.Inject
  * Sealed interface that represents one time events from view model to screen.
  */
 sealed interface SettingsChannel {
-    object UnavailableEmail : SettingsChannel
-    object AccountUpdated : SettingsChannel
+    data object UnavailableEmail : SettingsChannel
+    data object AccountUpdated : SettingsChannel
 }
 
 /**

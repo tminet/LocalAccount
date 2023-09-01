@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
 }
 
@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Local Account"
-include ":app"
+include(":app")

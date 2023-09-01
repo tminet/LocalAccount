@@ -86,7 +86,7 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = screenState.userName)
+            Text(text = stringResource(id = R.string.welcomeUser, screenState.userName))
         }
     }
 }

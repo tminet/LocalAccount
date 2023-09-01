@@ -21,7 +21,7 @@ import javax.inject.Inject
  * Sealed interface that represents one time events from view model to screen.
  */
 sealed interface HomeChannel {
-    object Logout : HomeChannel
+    data object Logout : HomeChannel
 }
 
 /**

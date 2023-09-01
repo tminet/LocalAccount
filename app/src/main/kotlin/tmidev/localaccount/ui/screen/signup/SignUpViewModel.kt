@@ -27,9 +27,9 @@ import javax.inject.Inject
  * Sealed interface that represents one time events from view model to screen.
  */
 sealed interface SignUpChannel {
-    object UnavailableEmail : SignUpChannel
-    object SignUpFailed : SignUpChannel
-    object SignUpSuccessfully : SignUpChannel
+    data object UnavailableEmail : SignUpChannel
+    data object SignUpFailed : SignUpChannel
+    data object SignUpSuccessfully : SignUpChannel
 }
 
 /**
